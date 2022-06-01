@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --env development",
     "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack --env production"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "webpack-merge": "^5.8.0"
   }
 }
