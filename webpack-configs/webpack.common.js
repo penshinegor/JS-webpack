@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/js/index.js',
@@ -26,7 +27,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: 'images'
+              outputPath: 'assets/images'
             }
           }
         ]
@@ -46,6 +47,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [{
+        from: "src/assets/images",
+        to: 'assets/images',
+      }]
+    }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       title: 'JS Learning',
