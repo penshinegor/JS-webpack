@@ -2,113 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-
-    <style>
-        * {
-            color: red;
-        }
-        .button {
-            display: inline-block;
-            border: none;
-            border-radius: 4px;
-            font-size: 20px;
-        }
-
-        .wrapper {
-            position: relative;
-            height: 50vh;
-            width: 100%;
-            background: #00f;
-        }
-
-        .element {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 100px;
-            background: #0f0;
-            width: 100px;
-            text-align: center;
-            transform: translate(-50%, -50%);
-        }
-
-        button {
-            font-family: Arial, sans-serif;
-        }
-
-        button:hover {
-            color: blueviolet;
-        }
-
-        #elem {
-
-        }
-
-        .button[type=submit] {
-
-        }
-
-        input[type=text] {
-
-        }
-
-        input[type=number] {
-
-        }
-    </style>
+    <title>CV of Penshin Egor</title>
+    <link rel="stylesheet" href="styles/main.scss">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/inter">
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
 </head>
+
 <body>
-    <button type="button" class="button button-red" style="background: aquamarine">subscribe</button>
-    <form action="">
-        <label for="email">email</label>
-        <input id="email" type="email">
-        <input id="email" type="text">
-        <input id="email" type="number">
-        <button type="submit" class="button button-red" style="background: aquamarine">subscribe</button>
-    </form>
+    <div class="cv">
+            <img class="cv-image" src="assets/images/logo.svg">
 
+            <div class="cv-first-text">
+                <h2 class="cv-title">Penshin Egor</h2>
+                <p class="cv-secondary-title">Beginer Web peveloper</p>
+            </div>
 
-    <div class="wrapper">
-        <div class="element" id="elem">Content</div>
+            <div class="skills__list">
+                <h2 class="cv-skills-title">Skills</h2>
+                <p class="cv-skills-text">More than half-year programming and application development experience.<br>
+                    <span>Languages:</span><br>
+                    • Proficient in: C++, Java<br>
+                    • Familiar with: C#, HTML, CSS<br>
+                    <span>Software:</span><br>
+                    • IDE: Microsoft Visual Studio Community 2019, IntelliJ IDEA<br>
+                    • Text Editor: Visual Studia Code<br>
+                    <span>OS:</span><br>
+                    • Windows
+                </p>
+            </div>
+
+            <div class="education__text">
+                <h2 class="cv-education-title">Education</h2>
+                <p class="cv-education-text">
+                    National Aerospace University<br>
+                    Kharkov<br>
+                    • 121 Software Engineering (Bachelor)
+                </p>
+            </div>
+
+            <div class="contact__text">
+                <h2 class="cv-contact-title">Contact</h2>
+                <p class="cv-contact-text">
+                    <span>Phone: </span>380505247476<br>
+                    <span>Email: </span>pensinegor@gmail.com
+                </p>
+            </div>
+
+            <div class="work__text">
+                <h2 class="cv-work-title">Work experience</h2>
+                <p class="cv-work-text">I don’t have work experience</p>
+            </div>
+
+            <div class="networks__text">
+                <h2 class="cv-networks-title">Social networks</h2>
+                <p class="cv-networks-text">
+                    <span>Git: </span>
+                    <a href="https://github.com/penshinegor/JS-webpack">https://github.com/penshinegor/JS-webpack</a>
+                    <br>
+                    <span>Telegram: </span>penshin_e<br>
+                    <span>Instagram: </span>penshin.e
+                </p>
+            </div>
     </div>
 
-    <img src="assets/images/image.png" alt="image.png">
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>234</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-        </tr>
-        <tr>
-            <td>234</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-        </tr>
-        <tr>
-            <td>234</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-        </tr>
-        <tr>
-            <td>234</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-        </tr>
-        <tr>
-            <td>234</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="feedback-form">
+        <div class="feedback-form-wrapper flex-column">
+            <h3 class="feedback-form-title">Feedback form</h3>
+            <form action="submit" class="feedback-forms">
+                <input type="text" class="feedback-form-input" id="feedback" name="feedback" placeholder="Write feedback">
+                <button class="feedback-form-button" type="submit">Reply</button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
