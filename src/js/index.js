@@ -1,13 +1,32 @@
 import '../styles/main.scss';
 
-for (let i = 1; i <= 100; i++) {
-    if (i % 3 == 0 && i % 5 != 0 && i % 15 != 0) {
-        console.log('Кратное 3: ' + i);
+//Function 1
+function EqualityTestFunction (a, b) {
+    if (a === b) {
+        return true;
     }
-    if (i % 3 != 0 && i % 5 == 0 && i % 15 != 0) {
-        console.log('Кратное 5: ' + i);
+    return false;
+}
+console.log(EqualityTestFunction(2, 3));
+console.log(EqualityTestFunction(3, 3));
+console.log(EqualityTestFunction(1, '1'));
+console.log(EqualityTestFunction('10', '10'));
+
+//Function 2
+function CheckDivisionFunction (x, y) {
+    if (x % y == 0) {
+        return x;
     }
-    if (i % 3 == 0 && i % 5 == 0 && i % 15 == 0) {
-        console.log('Кратное 15: ' + i);
+    else {
+        while (true){
+            x++;
+            if (x % y == 0) {
+                return x;
+            }
+        }
     }
 }
+console.log(CheckDivisionFunction(1, 23));
+console.log(CheckDivisionFunction(23, 23));
+console.log(CheckDivisionFunction(7, 3));
+console.log(CheckDivisionFunction(-5, 7));
