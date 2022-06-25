@@ -1,32 +1,45 @@
 import '../styles/main.scss';
 
-//Function 1
-function EqualityTestFunction (a, b) {
-    if (a === b) {
-        return true;
-    }
-    return false;
-}
-console.log(EqualityTestFunction(2, 3));
-console.log(EqualityTestFunction(3, 3));
-console.log(EqualityTestFunction(1, '1'));
-console.log(EqualityTestFunction('10', '10'));
+const car = {
+    name: 'Bmw',
+    typeBodyCar: 'Sedan',
+    hasAutomaticTransmission: true,
+    color: 'black',
+    maxSpeed: 275,
 
-//Function 2
-function CheckDivisionFunction (x, y) {
-    if (x % y == 0) {
-        return x;
+    startDrive() { 
+        console.log('Our car started drive') 
+    },
+    useBeep() { 
+        console.log('Beep-Beep') 
+    },
+    sportModeOn() { 
+        console.log('Sport mode on. Our car can drive faster') 
     }
-    else {
-        while (true){
-            x++;
-            if (x % y == 0) {
-                return x;
-            }
-        }
-    }
+};
+
+console.log(car);
+
+function Car (name, typeBodyCar, hasAutomaticTransmission, color, maxSpeed) {
+    this.name = name;
+    this.typeBodyCar = typeBodyCar;
+    this.hasAutomaticTransmission = hasAutomaticTransmission;
+    this.color = color;
+    this.maxSpeed = maxSpeed;
+
+    this.startDrive = function () {
+        console.log('Our car started drive')
+    };
+    this.useBeep = function () {
+        console.log('Beep-Beep') 
+    };
+    this.sportModeOn = function () { 
+        console.log('Sport mode on. Our car can drive faster') 
+    };
 }
-console.log(CheckDivisionFunction(1, 23));
-console.log(CheckDivisionFunction(23, 23));
-console.log(CheckDivisionFunction(7, 3));
-console.log(CheckDivisionFunction(-5, 7));
+
+const familyCar = new Car ('Volkswagen', 'Minivan', false, 'blue', 190);
+
+console.log(familyCar);
+
+
