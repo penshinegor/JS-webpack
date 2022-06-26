@@ -1,45 +1,40 @@
+import { indexOf } from 'lodash';
 import '../styles/main.scss';
 
-const car = {
-    name: 'Bmw',
-    typeBodyCar: 'Sedan',
-    hasAutomaticTransmission: true,
-    color: 'black',
-    maxSpeed: 275,
-
-    startDrive() { 
-        console.log('Our car started drive') 
-    },
-    useBeep() { 
-        console.log('Beep-Beep') 
-    },
-    sportModeOn() { 
-        console.log('Sport mode on. Our car can drive faster') 
-    }
-};
-
-console.log(car);
-
-function Car (name, typeBodyCar, hasAutomaticTransmission, color, maxSpeed) {
-    this.name = name;
-    this.typeBodyCar = typeBodyCar;
-    this.hasAutomaticTransmission = hasAutomaticTransmission;
-    this.color = color;
-    this.maxSpeed = maxSpeed;
-
-    this.startDrive = function () {
-        console.log('Our car started drive')
-    };
-    this.useBeep = function () {
-        console.log('Beep-Beep') 
-    };
-    this.sportModeOn = function () { 
-        console.log('Sport mode on. Our car can drive faster') 
-    };
+// Function 1
+function alphabeticallySortArray (array) {
+    return array.sort();
 }
 
-const familyCar = new Car ('Volkswagen', 'Minivan', false, 'blue', 190);
+console.log(alphabeticallySortArray(['b', 'c', 'd', 'a']));
+console.log(alphabeticallySortArray(['z', 'c', 'd', 'a', 'y', 'a', 'w']));
 
-console.log(familyCar);
+// Function 2
+function sumElement (arr, number) {
+    var sum = arr.reduce(function(sum, currentItem) {
+        if (currentItem > number) {
+            return sum + currentItem;
+        }
+        return sum;
+    }, 0);
 
+    return sum;
+}
+
+console.log(sumElement([1, 2, 3, 4, 5, 6, 7], 2));
+console.log(sumElement([-10, -11, -3, 1, -4], -3));
+console.log(sumElement([78, 99, 100, 101, 401], 99));
+
+// Function 3 
+function mergeArray (firstArray, secondArray) {
+    let newArray = [...firstArray, ...secondArray];
+    let filterArray = newArray.filter(function(item, i) {
+        return newArray.indexOf(item) == i;
+    });
+
+    return filterArray.sort((a, b) => a - b);
+}
+
+console.log(mergeArray([1, 2, 3], [3, 4, 5]));
+console.log(mergeArray([-10, 22, 333, 42], [-11, 5, 22, 41, 42]));
 
