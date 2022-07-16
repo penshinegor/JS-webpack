@@ -1,40 +1,15 @@
-import { indexOf } from 'lodash';
 import '../styles/main.scss';
 
-// Function 1
-function alphabeticallySortArray (array) {
-    return array.sort();
-}
+function createNewObject (obj) {
+    const newObject = {};
+    if (obj?.fn) { newObject.fn = obj.fn; }
+    if (obj?.ln) { newObject.ln = obj.ln; }
+    if (obj?.size) { newObject.size = obj.size.toString() + 'cm'; }
+    if (obj?.weight) { newObject.weight = obj.weight.toString() + 'kg'; }
+    return newObject;
+} 
 
-console.log(alphabeticallySortArray(['b', 'c', 'd', 'a']));
-console.log(alphabeticallySortArray(['z', 'c', 'd', 'a', 'y', 'a', 'w']));
-
-// Function 2
-function sumElement (arr, number) {
-    var sum = arr.reduce(function(sum, currentItem) {
-        if (currentItem > number) {
-            return sum + currentItem;
-        }
-        return sum;
-    }, 0);
-
-    return sum;
-}
-
-console.log(sumElement([1, 2, 3, 4, 5, 6, 7], 2));
-console.log(sumElement([-10, -11, -3, 1, -4], -3));
-console.log(sumElement([78, 99, 100, 101, 401], 99));
-
-// Function 3 
-function mergeArray (firstArray, secondArray) {
-    let newArray = [...firstArray, ...secondArray];
-    let filterArray = newArray.filter(function(item, i) {
-        return newArray.indexOf(item) == i;
-    });
-
-    return filterArray.sort((a, b) => a - b);
-}
-
-console.log(mergeArray([1, 2, 3], [3, 4, 5]));
-console.log(mergeArray([-10, 22, 333, 42], [-11, 5, 22, 41, 42]));
-
+console.log(createNewObject({fn: 'Lisa', ln: 'Müller', age: 17, size: 175, weight: 67}));
+console.log(createNewObject({fn: 'Martin', ln: 'Harper', age: 26, email: 'martin.harper@test.de', weight: 102}));
+console.log(createNewObject({fn: 'Andrew', ln: 'Harper', age: 81, size: 175, weight: 71}));
+console.log(createNewObject({fn: 'Matthew', ln: 'Müller', age: 19, email: 'matthew@mueller.de'}));
