@@ -1,71 +1,35 @@
 import '../styles/main.scss';
 
-class Transport {
-    
-    constructor(name, producerCountry, editionYear) {
-        this.name = name;
-        this.producerCountry = producerCountry;
-        this.editionYear = editionYear;
-    }
+const requestURL = 'https://jsonplaceholder.typicode.com/posts';
 
-    showInfo() {
-        return `This ${this.name} was made in ${this.producerCountry} in ${this.editionYear}`;
+// Promise 
+function sendRequest(url) {
+  return new Promise((resolve, reject) => {
+    try {
+      let response = fetch(url);
+      resolve(response);
+    } catch(err) {
+      reject(err);
     }
-
-    startEngine() {
-        return `Engine is working. ${this.name} ready to go.`;
-    }
+  })
+  .then(response => response.json())
+  .then(data => console.log(data.splice(0, 10)));
 }
 
-class WaterTransport extends Transport {
+sendRequest(requestURL);
 
-    constructor(name, producerCountry, editionYear, hasAnchor){
-        super(name, producerCountry, editionYear);
-        this.hasAnchor = hasAnchor;
-    }
+// Async/Await
+// async function getResponse(url) {
+//   try {
+//     let response = await fetch(url);
+//     let posts = await response.json();
+//     posts = posts.splice(0, 10);
+//     console.log(posts);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
-    showInfo() {
-        return `${super.showInfo()} \nPresence of anchor: ${this.hasAnchor}`;
-    }
+// getResponse(requestURL);
 
-    dropAnchor() {
-        if(this.hasAnchor) {
-            return 'The anchor is dropped.';
-        }
-        else {
-            return `${this.name} doesn't have the anchor`;
-        }
-    }
 
-    #setCoordinates(сoordinates) {
-        this.coordinates = сoordinates;
-    }
-
-    enableGPS(сoordinates) {
-        this.#setCoordinates(сoordinates);
-        return `We are moving to the point of given coordinates(${this.coordinates})`;
-    }
-}
-
-class Ship extends WaterTransport {
-
-    constructor(name, producerCountry, editionYear, hasAnchor, amountBlades, hasFlag) {
-        super(name, producerCountry, editionYear, hasAnchor);
-        this.amountBlades = amountBlades;
-        this.hasFlag = hasFlag;
-    }
-
-    raiseFlag() {
-        if(this.hasFlag) {
-            return `${this.producerCountry}'s flag is raised`;
-        }
-    }
-
-    showInfo() {
-        return `${super.showInfo()} \nAmount blades: ${this.amountBlades} \nPresence of ${this.producerCountry}'s flag:  ${this.hasFlag}`;
-    }
-
-    startEngine() {
-        return `${super.startEngine()} \n${this.amountBlades} blades start working`;
-    }
-}
