@@ -28,13 +28,12 @@ console.log(sumElement([78, 99, 100, 101, 401], 99));
 // Function 3 
 function mergeArray (firstArray, secondArray) {
     let newArray = [...firstArray, ...secondArray];
-    let filterArray = newArray.filter(function(item, i) {
+    newArray = newArray.filter(function(item, i) {
         return newArray.indexOf(item) == i;
     });
 
-    return filterArray.sort((a, b) => a - b);
+    return newArray.sort((a, b) => a - b);
 }
 
 console.log(mergeArray([1, 2, 3], [3, 4, 5]));
 console.log(mergeArray([-10, 22, 333, 42], [-11, 5, 22, 41, 42]));
-
